@@ -45,13 +45,26 @@ ZippyEats/
 
 ## 📸 Screenshots
 
-- Login Page
-- Sign Up Page
-- Home Page
-- Menu Page
-- Cart Page
-- Checkout Page
-- Admin Dashboard
+### 🔐 Login Page
+![Login Page](screenshots/login page.jpg)
+
+### 📝 Sign Up Page
+![Sign Up Page](screenshots/signup page.jpg)
+
+### 🏠 Dashboard Page
+![Dashboard](screenshots/dashboard page.jpg)
+
+### 🍽️ Menu Page
+![Menu Page](screenshots/menu page.jpg)
+
+### 🛒 Cart Page
+![Cart Page](screenshots/cart page.jpg)
+
+### 📍 Location Page
+![Location Page](screenshots/location page.jpg)
+
+### 💳 Payment Page
+![Payment Page](screenshots/payment page.jpg)
 
 ## 👩‍💻 Author
 
