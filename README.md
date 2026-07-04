@@ -49,22 +49,22 @@ ZippyEats/
 ![Login Page](screenshots/login%20page.jpg)
 
 ### 🆕 Signup Page
-![Signup Page](screenshots/signup%20.jpg)
+![Signup Page](screenshots/signup%20page.jpg)
 
 ### 🏠 Dashboard Page
-![Dashboard Page](screenshots/dashboard%20.jpg)
+![Dashboard Page](screenshots/dashboard%20page.jpg)
 
 ### 🍔 Menu Page
-![Menu Page](screenshots/menu%20.jpg)
+![Menu Page](screenshots/menu%20page.jpg)
 
 ### 🛒 Cart Page
-![Cart](images/cart.png)
+![Cart Page](screenshots/cart%20page.jpg)
 
 ### 📍 Location Page
-![Location Page](screenshots/location%20.jpg)
+![Location Page](screenshots/location%20page.jpg)
 
 ### 💳 Payment Page
-![Payment Page](screenshots/payment%20.jpg)
+![Payment Page](screenshots/payment%20page.jpg)
 
 ## 👩‍💻 Author
 
