@@ -46,7 +46,7 @@ ZippyEats/
 ## 📸 Screenshots
 
 ### 🧑‍💻 Login Page
-![Login](images/login.png)
+![Login Page](screenshots/login%20page.jpg)
 
 ### 🆕 Signup Page
 ![Signup](images/signup.png)
