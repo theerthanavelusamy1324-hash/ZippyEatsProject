@@ -41,6 +41,7 @@ ZippyEats/
 ├── database/
 ├── screenshots/
 └── README.md
+---
 
 ## 📸 Screenshots
 
