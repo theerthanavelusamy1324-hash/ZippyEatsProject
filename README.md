@@ -36,11 +36,11 @@ Zippy Eats is a Java Full Stack food ordering web application that allows users 
 ## 📂 Project Structure
 
 ZippyEats/
-│── frontend/
-│── backend/
-│── database/
-│── screenshots/
-│── README.md
+├── frontend/
+├── backend/
+├── database/
+├── screenshots/
+└── README.md
 
 ## 📸 Screenshots
 
