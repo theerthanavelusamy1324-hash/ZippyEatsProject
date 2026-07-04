@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <title>Cart</title>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+         <style>
+             body{
+            background:#FFF6EF;
+        }
+        #menu{
+            border-color:#FF4759;
+            border-radius:20px;
+            color:#FF4759;
+        }
+        .navbar-brand{
+            color:#FF9737;
+        }
+        #carticon{
+            color:white;
+        }
+        #cart{
+            background:#FF4759;
+            border-color:#FF4759;
+            border-radius:10px;
+            color:white;
+        }
+        #decrease{
+            background:#FE6B6C;
+            color:white;
+            border-radius:50%;
+            width:50%;
+            height:50px;
+        }
+        #increase{
+             background:#FE6B6C;
+            color:white;
+            border-radius:50%;
+            width:50%;
+            height:50px;
+
+        }
+        .countprice{
+            margin-top:10px;
+        }
+        .pricecount{
+            color:#FE6B6C;
+            margin-top:10px;
+        }
+        #buttons{
+            border:none;
+            background:none;
+            margin-bottom:40px;
+        }
+        #trash{
+            color:#FF4759;
+        }
+        #proceed{
+            background:linear-gradient(to right,#FF725E,#FF9A17);
+            color:white;
+            padding:10px;
+            border-radius:10px;
+            border-color:#FF9A17;
+        }
+        #totals{
+            color:#D9626D;
+            font-size:20px;
+            font-weight:bold;
+        }
+        .card{
+            border-radius:10px;
+            border:none;
+        }
+         </style>
+    </head>
+    <body>
+        <nav class="navbar bg-white">
+            <span class="navbar-brand ms-5">🍔<b>Zippy Eats</b></span>
+            <div class="items d-flex gap-4">
+            <a href="menu.html" class="btn" id="menu">Menu</a>
+                <a href="cart.html" class="btn me-4" id="cart"><i class="bi bi-cart" id="carticon"></i>Cart<span id="carttotal"> 0</span></a>
+                </div>
+        </nav>
+        <div class="container">
+            <h3 class="mt-3"><i class="bi bi-cart"></i>Your cart</h3>
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <div id="showhistory"></div>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <div class="card p-3">
+                        <h3>Order Summary</h3>
+                        <hr>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p>SubTotal</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="subtotal">₹ 0</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p>Delivery Fee</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>₹40</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p><b>Total</b></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="totals"><b>₹0</b></p>
+                            </div>
+                        </div>
+                        <button onclick="proceed()" class="btn" id="proceed">Proceed to Checkout →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            async function getMenu() {
+            let response = await fetch(`http://localhost:8080/menus`);
+            let data = await response.json();
+            let show = "";
+            console.log(data);
+            for(let d of data){
+                show +=`
+                <div class="card p-3 mt-4">
+                    <div class="carditems d-flex gap-5">
+                        <img src="${d.image}" width="200" height="100">
+                        <p><b>${d.name}</b>
+                          
+                          <div class="d-flex gap-4">
+                            <button onclick="decrease(${d.id})"  class="btn" id="decrease">-</button>
+                            <p id="countitem${d.id}" class="countprice">0</p>
+                             <button onclick="changeqty(${d.id})" class="btn" id="increase">+</button>
+                            </div>
+
+                             <p id="priceitem${d.id}" class="pricecount"><b> ₹${d.price}</b></p>
+                             <button onclick="deleteitem('${d.id}'')" id="buttons"><i class="bi bi-trash" id="trash"></i></button>
+                             </div>
+                             </div>
+                             `;
+                            
+            }
+            document.getElementById("showhistory").innerHTML = show;
+                
+            }
+            getMenu();
+            async function changeqty(id){
+              let response = await fetch(`http://localhost:8080/menus`);
+            let data = await response.json();
+           let qty = document.getElementById("countitem" + id);
+           qty.innerHTML ++;
+           let quantity = Number(qty.innerHTML) + 1;
+            for(let m of data){
+              document.getElementById("priceitem" + id).innerHTML = m.price * quantity;
+              document.getElementById("subtotal").innerHTML = "₹" + m.price * quantity;
+              document.getElementById("totals").innerHTML =  m.price * quantity + Number(40);
+                }
+                
+           }
+           async function decrease(id) {
+             let response = await fetch(`http://localhost:8080/menus`);
+            let data = await response.json();
+            let qty = document.getElementById("countitem" + id);
+           qty.innerHTML--;
+           let quantity = Number(qty.innerHTML) - 1;
+           for(let t of data){
+              document.getElementById("priceitem" + id).innerHTML = t.price * quantity;
+                }
+            
+           }
+           async function loadcart() {
+        let response = await fetch(`http://localhost:8080/detailscount`);
+        let data = await response.text();
+        document.getElementById("carttotal").innerHTML = data;
+            
+           }
+           loadcart();
+           function proceed(){
+            window.location.href = "location.html";
+           }
+           
+            
+                
+                 
+           
+        </script>
+
+    </body>
+    </html>
