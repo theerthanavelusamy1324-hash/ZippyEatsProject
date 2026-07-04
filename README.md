@@ -4,6 +4,15 @@
 
 Zippy Eats is a Java Full Stack food ordering web application that allows users to browse food items, add them to the cart, place orders, and manage their accounts. The application provides a simple and responsive interface for customers and an admin panel to manage restaurants, menu items, and orders.
 
+## 🔗 Live Demo
+[https://your-project.vercel.app](https://theerthanavelusamy1324-hash.github.io/ZippyEatsProject/)
+
+## 💻 Source Code
+[https://github.com/your-username/ZippyEatsProject](https://github.com/theerthanavelusamy1324-hash/ZippyEatsProject)
+
+---
+
+
 ## ✨ Features
 
 - User Registration & Login
